@@ -32,12 +32,32 @@
             </small>
             <% end %>
           </td>
+          <td>
+            コメント件数：<%= @book_show.post_comments.count %>
+          </td>
           <% if @book_show.user == current_user %>
             <td><%= link_to 'Edit', edit_book_path(@book_show), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', @book_show, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
         </tr>
       </table>
+      <div>
+        <% @book_show.post_comments.each do |book_show| %>
+          <small><%= image_tag book_show.user.get_profile_image, size: "50x50" %></small>
+          <small><%= book_show.comment %></small>
+          <div>
+            <%= link_to (book_show.user) do %>
+              <%= book_show.user.name %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <%= form_with model: [@book_show, @post_comment] do |f| %>
+        <%= f.text_area :comment, rows: '6', class: "d-block w-100" %>
+        <%= f.submit "送信する" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
