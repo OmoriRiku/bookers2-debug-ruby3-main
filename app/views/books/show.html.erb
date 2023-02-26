@@ -17,8 +17,8 @@
           </td>
           <td><%= link_to @book_show.title, @book_show %></td>
           <td><%= @book_show.body %></td>
-          <td>
-            <%= render 'favorites/btn', book: @book_show %>
+          <td class="favorite-btn">
+            <%= render 'favorites/favorite_btn', book: @book_show %>
           </td>
           <td>
             コメント件数：<%= @book_show.post_comments.count %>
