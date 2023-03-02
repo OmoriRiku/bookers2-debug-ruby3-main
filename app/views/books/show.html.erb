@@ -18,7 +18,7 @@
   		<table class='table'>
   		  <tr id="book_<%= @book.id %>">
           <td><%= link_to(@book.user) do %>
-            <%= image_tag @book.user.get_profile_image, size:"100x100" %><br>
+            <%= image_tag @book.user.get_profile_image, size:"50x50" %><br>
             <%= @book.user.name %>
             <% end %>
           </td>
@@ -31,7 +31,7 @@
             コメント件数：<%= @book.book_comments.count %>
           </td>
           
-          <td><div id="show_raty<%= @book.id %>"></div></td>
+          <td id="show_raty<%= @book.id %>"></td>
           <script>
           document.addEventListener("turbolinks:load", function() {
           let show = document.querySelector('#show_raty<%= @book.id %>');
