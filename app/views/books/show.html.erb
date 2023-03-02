@@ -33,7 +33,9 @@
           
           <td><div id="show_raty<%= @book.id %>"></div></td>
           <script>
+          document.addEventListener("turbolinks:load", function() {
           let show = document.querySelector('#show_raty<%= @book.id %>');
+          show.textContent = '';
           let val = {
             starOn: '<%= asset_path('star-on.png') %>',
             starOff: '<%= asset_path('star-off.png') %>',
@@ -42,6 +44,7 @@
             score: <%= @book.star %>,
           };
           raty(show,val);
+          });
           </script>
           
           <% if @book.user == current_user %>

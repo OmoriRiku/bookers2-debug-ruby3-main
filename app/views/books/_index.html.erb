@@ -24,7 +24,9 @@
         </td>
         <td><div id="all_raty<%=book.id%>"></div></td>
         <script>
+        document.addEventListener("turbolinks:load", function() {
         let user_show = document.querySelector('#all_raty<%=book.id%>');
+        user_show.textContent = '';
         let user_val = {
           starOn: '<%= asset_path('star-on.png') %>',
           starOff: '<%= asset_path('star-off.png') %>',
@@ -33,6 +35,7 @@
           score: <%=book.star%>,
         };
         raty(user_show,user_val);
+        });
         </script>
       </tr>
     <% end %>

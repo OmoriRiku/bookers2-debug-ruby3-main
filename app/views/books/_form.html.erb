@@ -9,7 +9,9 @@
   </div>
   <div class="mb-3" id="post-raty"></div>
   <script>
+    document.addEventListener("turbolinks:load", function() {
     let elem = document.querySelector('#post-raty');
+    elem.textContent = '';
     let opt = {
       starOn: '<%= asset_path('star-on.png') %>',
       starOff: '<%= asset_path('star-off.png') %>',
@@ -17,6 +19,7 @@
       scoreName: 'book[star]',
     };
     raty(elem,opt);
+    });
   </script>
   <div class="form-group">
     <%= f.submit class: 'btn btn-success' %>
