@@ -22,6 +22,18 @@
         <td>
           コメント件数：<%= book.book_comments.count %>
         </td>
+        <td><div id="all_raty<%=book.id%>"></div></td>
+        <script>
+        let user_show = document.querySelector('#all_raty<%=book.id%>');
+        let user_val = {
+          starOn: '<%= asset_path('star-on.png') %>',
+          starOff: '<%= asset_path('star-off.png') %>',
+          numberMax: 5,
+          readOnly: true,
+          score: <%=book.star%>,
+        };
+        raty(user_show,user_val);
+        </script>
       </tr>
     <% end %>
   </tbody>
