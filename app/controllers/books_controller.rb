@@ -11,6 +11,7 @@ class BooksController < ApplicationController
   def index
     index_sort
     @book = Book.new
+    @tag = @book.tsgs.new
     @user = current_user
   end
 
@@ -62,6 +63,6 @@ class BooksController < ApplicationController
   end
 
   def book_params
-    params.require(:book).permit(:title,:body, :star)
+    params.require(:book).permit(:title,:body, :star, :tag_id, tags_attributes: [:id, :name])
   end
 end
