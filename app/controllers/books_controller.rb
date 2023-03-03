@@ -11,7 +11,6 @@ class BooksController < ApplicationController
   def index
     index_sort
     @book = Book.new
-    @tag = @book.tsgs.new
     @user = current_user
   end
 
