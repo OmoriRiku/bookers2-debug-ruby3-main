@@ -34,16 +34,15 @@
           <td id="show_raty<%= @book.id %>"></td>
           <script>
           document.addEventListener("turbolinks:load", function() {
-          let show = document.querySelector('#show_raty<%= @book.id %>');
-          show.textContent = '';
-          let val = {
-            starOn: '<%= asset_path('star-on.png') %>',
-            starOff: '<%= asset_path('star-off.png') %>',
-            numberMax: 5,
-            readOnly: true,
-            score: <%= @book.star %>,
-          };
-          raty(show,val);
+              let show = document.querySelector('#show_raty<%= @book.id %>');
+              show.textContent = '';
+              let val = {
+                  starOn: '<%= asset_path('star-on.png') %>',
+                  starOff: '<%= asset_path('star-off.png') %>',
+                  readOnly: true,
+                  score: <%= @book.star %>,
+              };
+              raty(show,val);
           });
           </script>
           

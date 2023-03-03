@@ -9,8 +9,15 @@ class BooksController < ApplicationController
   end
 
   def index
+    if params[:id]
+      @books = Book.order(id: :desc)
+    elsif params[:star]
+      @books = Book.order(star: :desc)
+    else
+      @books = Book.all
+    end
+
     @book = Book.new
-    @books = Book.all
     @user = current_user
   end
 

@@ -15,16 +15,15 @@
       <div class="mb-3" id="post-raty"></div>
       <script>
       document.addEventListener("turbolinks:load", function() {
-        let update = document.querySelector('#post-raty');
-        update.textContent = '';
-        let update_opt = {
-        starOn: '<%= asset_path('star-on.png') %>',
-        starOff: '<%= asset_path('star-off.png') %>',
-        numberMax: 5,
-        readOnly: true,
-        score: <%=@book.star%>,
-      };
-      raty(update,update_opt);
+          let update = document.querySelector('#post-raty');
+          update.textContent = '';
+          let update_opt = {
+            starOn: '<%= asset_path('star-on.png') %>',
+            starOff: '<%= asset_path('star-off.png') %>',
+            readOnly: true,
+            score: <%=@book.star%>,
+          };
+          raty(update,update_opt);
       });
       </script>
       <div class="form-group">
