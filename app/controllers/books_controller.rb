@@ -9,14 +9,7 @@ class BooksController < ApplicationController
   end
 
   def index
-    if params[:id]
-      @books = Book.order(id: :desc)
-    elsif params[:star]
-      @books = Book.order(star: :desc)
-    else
-      @books = Book.all
-    end
-
+    index_sort
     @book = Book.new
     @user = current_user
   end
@@ -51,6 +44,16 @@ class BooksController < ApplicationController
 
   private
   
+  def index_sort
+    if params[:id]
+      @books = Book.order(id: :desc)
+    elsif params[:star]
+      @books = Book.order(star: :desc)
+    else
+      @books = Book.all
+    end
+  end
+
   def ensure_book_user
     @book = Book.find(params[:id])
     unless @book.user == current_user

@@ -17,7 +17,7 @@
     <div class='col-md-8 offset-md-1'>
       <h2>Books</h2>
       <div class="row">
-          <%= link_to "新着順", books_path(id: @books) %>
+          <%= link_to "新着順", books_path(id: @books.ids) %>
           | <%= link_to "評価の高い順", books_path(star: @books) %>
       </div>
       <%= render 'index', books: @books%>
