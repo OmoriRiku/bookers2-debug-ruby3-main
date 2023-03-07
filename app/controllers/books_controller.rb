@@ -45,13 +45,7 @@ class BooksController < ApplicationController
   private
   
   def index_sort
-    if params[:id]
-      @books = Book.order(id: :desc)
-    elsif params[:star]
-      @books = Book.order(star: :desc)
-    else
-      @books = Book.all
-    end
+    @books = Book.order(params[:sort])
   end
 
   def ensure_book_user

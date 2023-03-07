@@ -25,3 +25,10 @@
     </th>
 	</tr>
 </table>
+<% if user.name != "guestuser" %>
+<div class='row'>
+  <%= link_to edit_user_path(user), class: "mb-3 btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
+<% end %>
