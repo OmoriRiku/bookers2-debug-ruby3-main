@@ -5,8 +5,8 @@ class Book < ApplicationRecord
   has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
 
-  validates :title,presence:true
-  validates :body,presence:true,length:{maximum:200}
+  validates :title, presence: true
+  validates :body, presence: true, length: { maximum: 200 }
 
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
@@ -18,10 +18,9 @@ class Book < ApplicationRecord
     elsif search == "foward"
       Book.where("title LIKE ? ", word + "%")
     elsif search == "backward"
-      Book.where("title LIKE ? ", "%" + word )
+      Book.where("title LIKE ? ", "%" + word)
     else
       Book.where("title LIKE ? ", "%" + word + "%")
     end
   end
-  
 end

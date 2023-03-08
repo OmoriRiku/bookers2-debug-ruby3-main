@@ -21,7 +21,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
       @books = Book.all
-      render 'index'
+      render "index"
     end
   end
 
@@ -43,19 +43,18 @@ class BooksController < ApplicationController
   end
 
   private
-  
-  def index_sort
-    @books = Book.order(params[:sort])
-  end
-
-  def ensure_book_user
-    @book = Book.find(params[:id])
-    unless @book.user == current_user
-      redirect_to books_path
+    def index_sort
+      @books = Book.order(params[:sort])
     end
-  end
 
-  def book_params
-    params.require(:book).permit(:title,:body, :star, :tag_id, tags_attributes: [:id, :name])
-  end
+    def ensure_book_user
+      @book = Book.find(params[:id])
+      unless @book.user == current_user
+        redirect_to books_path
+      end
+    end
+
+    def book_params
+      params.require(:book).permit(:title, :body, :star, :tag_id, tags_attributes: [:id, :name])
+    end
 end
