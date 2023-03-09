@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get "search" => "searches#search"
   get "search" => "searches#search_result"
   get "tag_search" => "tag_searches#tag_search"
-  get "tag_result" => "tag_searches#tag_result"
 
   resources :users, only: [:index, :show, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
