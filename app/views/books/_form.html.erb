@@ -13,7 +13,10 @@
     <%= f.text_field :tag, class: 'form-control book_tag' %>
   </div>
 
-  <div class="mb-3" id="post-raty"></div>
+  <div class="form-group">
+    <%= f.label :star %>
+    <div class="mb-3" id="post-raty"></div>
+  </div>
   <script>
     document.addEventListener("turbolinks:load", function() {
       let elem = document.querySelector('#post-raty');

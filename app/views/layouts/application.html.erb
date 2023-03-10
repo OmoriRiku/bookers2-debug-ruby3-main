@@ -11,13 +11,13 @@
   <body>
     <%= render 'layouts/header' %>
       <main>
-        <p id="notice"><%= notice %></p>
-        <div class="container mb-2">
-          <div class="row d-flex align-items-center">
-            <%= render 'searches/search', class: "col-md-8" %>
-            <%= render 'layouts/tag_search', class: "col-md-4" %>
-          </div>
+      <p id="notice"><%= notice %></p>
+      <div class="container mb-2">
+        <div class="row d-flex align-items-center">
+          <%= render 'searches/search', class: "col-md-8" %>
+          <%= render 'layouts/tag_search', class: "col-md-4" %>
         </div>
+      </div>
       </div>
         <%= yield %>
       </main>
